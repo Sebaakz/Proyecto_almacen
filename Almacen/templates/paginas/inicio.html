@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo %} Nosotros {% endblock %}
+
+{% block contenido %} 
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3">Bienvenido al Sistema de Gestión Almacén los YUYITOS” </h1>
+        <p class="lead">para continuar ingrese al sistema.</p>
+        <hr class="my-2">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'cliente' %}" role="button">Ingresar</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}
