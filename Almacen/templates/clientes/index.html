@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         listar clientes
-        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">registrar nuevo cliente</a>
+        <a name="" id="btn-crear-cliente" class="btn btn-success" href="{% url 'crear' %}" role="button">registrar nuevo cliente</a>
     </div>
     <div class="card-body">
         <h4 class="card-title">productos</h4>
@@ -26,17 +26,17 @@
             <tbody>
 
                 {% for cliente in clientes %}
-                <tr>
-                    <td scope="row">{{ cliente.rut_cliente }}</td>
+                <tr id="{{ cliente.id }}" >
+                    <td scope="row" id="{{ cliente.rut_cliente }}">{{ cliente.rut_cliente }}</td>
                     <td scope="row">{{ cliente.nombre }}</td>
                     <td scope="row">{{ cliente.apellido }}</td>
                     <td scope="row">{{ cliente.direccion }}</td>
                     <td scope="row">{{ cliente.telefono }}</td>
                     <td scope="row">{{ cliente.correo }}</td>
                     <td scope="row">
-                        <a name="" id="" class="btn btn-info" href="{% url 'editar' cliente.id %}" role="button">editar</a>
-                        | 
-                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' cliente.id %}" role="button">borrar</a>
+                        <a name="edit_{{ cliente.rut_cliente }}" id="" class="btn btn-info" href="{% url 'editar' cliente.id %}" role="button">editar</a>
+                        
+                        <a name="" id="delete" class="btn btn-danger" href="{% url 'eliminar' cliente.id %}" role="button">borrar</a>
                         </td>
                 </tr>
                 {% endfor %}

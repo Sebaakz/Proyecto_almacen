@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %} 
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://media.eadbox.com/system/uploads/course/logo/5d8e29ce1d23ed003fb4ab31/ALMACEN.png" class="img-fluid"
+            alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <h1>Iniciar Sesion</h1>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+              <input type="text" id="campo_username" name="campo_username" class="form-control form-control-lg"
+                placeholder="Ingrese su nombre de usuario" />
+              <label class="form-label" for="campo_username">Nombre de usuario</label>
+            </div>
+            <div class="form-outline mb-3">
+              <input type="password" id="Campo_password" name="Campo_password" class="form-control form-control-lg"
+                placeholder="Ingrese su contraseña" />
+              <label class="form-label" for="Campo_password">Contraseña</label>
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button id="login_btn" type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+            </div>
+            {% for message in messages %}
+            <p id="error_message"><b>{{message}}</b></p>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
